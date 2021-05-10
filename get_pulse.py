@@ -26,3 +26,18 @@ import sys
         data = np.vstack((self.processor.times, self.processor.samples)).T
         np.savetxt(fn + ".csv", data, delimiter=',')
         print("Writing csv")
+ def toggle_display_plot(self):
+        """
+        Toggles the data display.
+        """
+        if self.bpm_plot:
+            print("bpm plot disabled")
+            self.bpm_plot = False
+            destroyWindow(self.plot_title)
+        else:
+            print("bpm plot enabled")
+            if self.processor.find_faces:
+                self.toggle_search()
+            self.bpm_plot = True
+            self.make_bpm_plot()
+            moveWindow(self.plot_title, self.w, 0)
