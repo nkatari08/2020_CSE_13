@@ -7,7 +7,7 @@ import sys
 
 
 def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
+   
     try:
         # PyInstaller creates a temp folder and stores path in _MEIPASS
         base_path = sys._MEIPASS
@@ -26,7 +26,7 @@ class findFaceGetPulse(object):
         self.frame_out = np.zeros((10, 10))
         self.fps = 0
         self.buffer_size = 250
-        #self.window = np.hamming(self.buffer_size)
+       
         self.data_buffer = []
         self.times = []
         self.ttimes = []
@@ -227,8 +227,7 @@ class findFaceGetPulse(object):
             self.slices = [np.copy(self.frame_out[y1:y1 + h1, x1:x1 + w1, 1])]
             col = (100, 255, 100)
             gap = (self.buffer_size - L) / self.fps
-            # self.bpms.append(bpm)
-            # self.ttimes.append(time.time())
+           
             if gap:
                 text = "(estimate: %0.1f bpm, wait %0.0f s)" % (self.bpm, gap)
             else:
